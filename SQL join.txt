@@ -1,0 +1,128 @@
+Database----sys;
+Create table Salesman
+(
+salesman_id int not null primary key,
+name varchar(20)not null,
+city varchar(20)not null,
+commissin varchar(20)not null
+)
+;
+insert into Salesman values(5001,'James Hoog','New York',0.15);
+insert into Salesman values(5002,'Nail Knite','Paris',0.13);
+insert into Salesman values(5005,'Pit Alex','London',0.11);
+insert into Salesman values(5006,'Mc Lyon','Paris',0.14);
+insert into Salesman values(5007,'Paul Adam','Rome',0.13);
+insert into Salesman values(5003,'Lauson Hen','San Jose',0.12);
+
+Delete
+------
+Delete from Salesman;
+Select * from Salesman;
+
+Customer
+create table Customer
+(
+customer_id int not null,
+cust_name varchar(20)not null,
+city varchar(20)not null,
+Grade int(20)not null,
+salesman_id int(10) not null,
+primary key(customer_id),
+foreign key(salesman_id)References Salesman(salesman_id)
+)
+;
+insert into Customer values(3002,'Nick Rimando','New York',100,5001);        
+
+insert into Customer values(3002,'Nick Rimando','New York',100,5001);        
+insert into Customer values(3007,'Brad Davis','New York',200,5001);        
+insert into Customer values(3005,'Graam Zusi','California',200,5002);
+insert into Customer values(3008,'Julian Green','London',300,5002);
+insert into Customer values(3004,'Nick Fabian Johnson','Paris',300,5006);
+insert into Customer values(3009,'Geoff Cameron','Berlin',100,5003);
+insert into Customer values(3003,'JozyAltidor','Moscow',200,5007);
+insert into Customer values(3001,'Brad Guzan','London',0,5005);     
+1 question;
+-----------
+Write a Same city:
+------------------
+Select Customer.cust_name,
+Salesman.name,Salesman.city 
+from Salesman,Customer
+where Salesman.city=Customer.city;
+2. Question:
+-------------
+From the following tables write a SQL query
+ to find the salesperson(s) and the customer(s) 
+he handle. Return Customer Name, city, Salesman, commission
+
+Select Customer.cust_name,
+Salesman.name from Salesman,Customer
+where Salesman.salesman_id=Customer.salesman_id;
+3. Question:
+-------------
+From the following tables write a SQL query to 
+find those salespersons who received a commission
+ from the company more than 12%. Return Customer Name, 
+customer city, Salesman, commission.
+
+   SELECT a.cust_name AS "Customer Name", 
+a.city, b.name AS "Salesman", b.city,b.commissin  
+FROM customer a  
+INNER JOIN salesman b  
+ON a.salesman_id=b.salesman_id 
+WHERE b.commissin>.12 
+AND a.city<>b.city;
+4.Question
+----------
+Write a SQL statement to make a join on the 
+tables salesman, customer and orders in such a form that
+ the same column of each table will appear once
+ and only the relational rows will come
+
+
+SELECT * 
+FROM orders 
+NATURAL JOIN customer  
+NATURAL JOIN salesman;
+
+5.Question:
+-----------
+From the following tables write a SQL query
+to display the cust_name, customer city, grade, Salesman,
+salesman city. The result should be ordered by ascending on customer_id.
+
+SELECT a.cust_name,a.city,a.grade, 
+b.name AS "Salesman",b.city 
+FROM customer a 
+LEFT JOIN salesman b 
+ON a.salesman_id=b.salesman_id 
+order by a.customer_id;
+
+6.Question
+----------
+From the following tables write a SQL query 
+to find those customers whose grade less than 300. Return cust_name, customer city,
+ grade, Salesman, saleman city. The result should be ordered by ascending customer_id
+
+
+SELECT a.cust_name,a.city,a.Grade, 
+b.name AS "Salesman", b.city 
+FROM customer a 
+LEFT OUTER JOIN salesman b 
+ON a.salesman_id=b.salesman_id 
+WHERE a.Grade<300 
+ORDER BY a.customer_id;
+
+7.
+Write a SQL statement to make a report with 
+customer name, city, order number, order date, and order 
+amount in ascending order according to the order date to find that either
+any of the existing customers have placed no order or placed one or more orders.
+
+        SELECT a.cust_name,a.city, b.ord_no,
+b.ord_date,b.purch_amt AS "Order Amount" 
+FROM customer a 
+LEFT OUTER JOIN orders b 
+ON a.customer_id=b.customer_id 
+order by b.ord_date;
+        
