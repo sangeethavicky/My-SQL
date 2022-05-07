@@ -1,0 +1,37 @@
+CREATE TABLE IF NOT EXISTS employees ( 
+EMPLOYEE_ID decimal(6,0) NOT NULL PRIMARY KEY, 
+FIRST_NAME varchar(20) DEFAULT NULL, 
+LAST_NAME varchar(25) NOT NULL, 
+EMAIL varchar(25) NOT NULL, 
+PHONE_NUMBER varchar(20) DEFAULT NULL, 
+HIRE_DATE date NOT NULL, 
+JOB_ID varchar(10) NOT NULL, 
+SALARY decimal(8,2) DEFAULT NULL, 
+COMMISSION_PCT decimal(2,2) DEFAULT NULL, 
+MANAGER_ID decimal(6,0) DEFAULT NULL, 
+DEPARTMENT_ID decimal(4,0) DEFAULT NULL, 
+FOREIGN KEY(DEPARTMENT_ID,MANAGER_ID) 
+REFERENCES  departments(DEPARTMENT_ID,MANAGER_ID)
+)ENGINE=InnoDB;
+
+
+
+Question 1:
+SELECT first_name, last_name, department_id
+FROM employees
+WHERE department_id IN (30, 100)
+ORDER BY  department_id  ASC;
+
+Question 2:
+SELECT first_name, last_name, salary
+FROM employees
+WHERE salary NOT BETWEEN 10000 AND 15000;
+
+Question 3:
+Write a query to display the name (first_name, last_name) 
+and hire date for all employees who were hired in 1987 
+
+
+SELECT first_name, last_name, hire_date 
+FROM employees 
+WHERE YEAR(hire_date)  LIKE '1987%';
