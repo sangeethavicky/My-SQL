@@ -1,0 +1,50 @@
+use userlogin--Database
+Create table XPEmployees
+(
+Employee_id int primary key,
+First_name varchar(20)not null,
+Last_name varchar(20)not null,
+email varchar(25)not null,
+phone_number varchar(15)not null,
+Hire_data date,
+Job_id varchar(20)not null,
+salary varchar(5)not null,
+commission_pct varchar(20)not null,
+Manage_id varchar(30)not null,
+Department_id varchar(30)not null
+)
+;
+
+
+insert into XPEmployees values(100,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(101,'Neena','Kochhar','NKOCHHAR',5151234568,1987-06-18,'AD_vp',17000,0.00,100,90);
+insert into Employees values(102,'Lex','De Haan','LDEHAAN',5151234569,1987-06-19,'AD_VP',17000,0.00,100,90);
+insert into Employees values(103,'Alexander','Hunold','AHUNOLD',5151234567,1987-06-20,'IT_PROG',9000,0.00,102,60);
+insert into Employees values(104,'Bruce','Ernst','BERNST',5151234568,1987-06-21,'IT_PROG',6000,0.00,103,60);
+insert into Employees values(105,'David','Austin','DAUSTIN',5151234569,1987-06-22,'IT_PROG',4800,0.00,103,60);
+insert into Employees values(106,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(107,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(108,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(109,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(110,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(111,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(112,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(113,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(114,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+insert into Employees values(115,'Steven','King','SKING',5151234567,1987-06-17,'AD_PRES',24000,0.00,0,0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
